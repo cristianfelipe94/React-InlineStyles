@@ -1,30 +1,35 @@
 import React from 'react'
 
-import Carousel from './carousel.js'
-import Frame from './frame.js'
+import Carousel from './carouselComponent/carousel.js'
+import Frame from './frameComponent/frame.js'
 import Nav from './nav.js'
-import Slide from './slide.js'
+import Slide from './slideComponent/slide.js'
+
+import configStyles from './config-style'
 
 export default class DriftApp extends React.Component {
   constructor(props) {
     super(props)
-    this.handleClickPrevious = this.handleClickPrevious.bind(this)
-    this.handleClickNext = this.handleClickNext.bind(this)
     this.state = {
       showIndex: 0,
       numSlides: 5
     }
+    this.handleClickPrevious = this.handleClickPrevious.bind(this)
+    this.handleClickNext = this.handleClickNext.bind(this)
   }
+
   handleClickPrevious() {
     this.setState({
       showIndex: Math.max(this.state.showIndex - 1, 0)
     })
   }
+
   handleClickNext() {
     this.setState({
       showIndex: Math.min(this.state.showIndex + 1, this.state.numSlides - 1)
     })
   }
+
   renderNav() {
     return (
       <Nav
@@ -35,13 +40,14 @@ export default class DriftApp extends React.Component {
       />
     )
   }
+
   render() {
     return (
       <Frame>
         <Carousel
           showIndex={this.state.showIndex}
           nav={this.renderNav()}
-          width={640}
+          width={configStyles.imageWidth}
         >
           <Slide image={require('./images/1.jpg')} title="Imperial Mockery">
             In a show of defiance, rebels have again made mockery of the majesty
