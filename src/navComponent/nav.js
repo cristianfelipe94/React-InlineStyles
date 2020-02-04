@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
+import styles from './nav-style'
+
 function Nav(props) {
   return (
-    <div>
-      <button onClick={props.onPrevious}>&#10094;</button>
-      <button onClick={props.onNext}>&#10095;</button>
+    <div style={styles.root}>
+      <button style={styles.previous} onClick={props.onPrevious}>&#10094;</button>
+      <button style={styles.next} onClick={props.onNext}>&#10095;</button>
     </div>
   )
 }

@@ -4,6 +4,6 @@ export default {
     root: {
         position: 'relative',
         overflow: 'hidden',
-        height: configStyles.imageHeight
+        height: configStyles.image.imageHeight
     }
 }
